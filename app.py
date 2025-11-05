@@ -16,18 +16,19 @@ def index():
 @app.route("/add", methods=["POST"])
 def add_task():
     """Adds a new task."""
-     todo_service.add_new_todo(
-        description=description,
-        title=title,
-        status=status,
-        start_date=start_date,
-        end_date=end_date
-   )
     description = request.form["description"]
     title = request.form["title"]
     status = request.form["status"]
     start_date = request.form["start_date"]
     end_date = request.form["end_date"]
+    d = {
+        "description":description,
+        "title":title,
+        "status":status,
+        "start_date":start_date,
+        "end_date":end_date
+
+    }
   
     return redirect(url_for("index"))
 
